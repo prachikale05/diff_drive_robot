@@ -1,140 +1,147 @@
-# 🤖 ROS 2 Differential Drive Mobile Robot
+# ROS2 Differential Drive Robot
 
-A complete ROS 2 Humble differential drive mobile robot simulation built using Gazebo, RViz, ros2_control, SLAM Toolbox, and Nav2.
-
-This project demonstrates the complete workflow of designing a mobile robot, simulating it in Gazebo, generating a map using SLAM, and performing autonomous navigation using Nav2.
+A complete differential drive mobile robot simulation developed using **ROS2 Humble**, **Gazebo**, **SLAM Toolbox**, and **Nav2**. The robot is capable of autonomous navigation using a saved map, LiDAR-based localization, and path planning.
 
 ---
 
-# Project Overview
+## 📌 Project Overview
 
-This robot was developed as a learning project to understand the complete ROS 2 mobile robot pipeline.
+This project demonstrates the complete workflow of developing a mobile robot in ROS2, starting from robot modeling to autonomous navigation.
 
-The project includes:
-
-- Robot modelling using URDF/Xacro
+The robot includes:
+- Differential drive mechanism
 - Gazebo simulation
-- Differential drive control using ros2_control
-- LiDAR integration
-- Camera integration
-- IMU integration
-- SLAM mapping
-- Autonomous Navigation using Nav2
+- LiDAR sensor
+- Camera sensor
+- IMU sensor
+- SLAM Toolbox for mapping
+- Nav2 for autonomous navigation
 - RViz visualization
 
 ---
 
-# Features
+## ✨ Features
 
-✔ Differential Drive Robot
-
-✔ Gazebo Simulation
-
-✔ RViz Visualization
-
-✔ ros2_control Integration
-
-✔ LiDAR Sensor
-
-✔ Camera Sensor
-
-✔ IMU Sensor
-
-✔ SLAM Toolbox Mapping
-
-✔ Occupancy Grid Map
-
-✔ Nav2 Autonomous Navigation
-
-✔ Goal-based Path Planning
+- Differential drive mobile robot
+- Modular URDF/Xacro robot description
+- Gazebo simulation environment
+- ros2_control integration
+- LiDAR sensor
+- Camera sensor
+- IMU sensor
+- SLAM Toolbox mapping
+- Occupancy Grid Map generation
+- Autonomous navigation using Nav2
+- RViz visualization
 
 ---
 
-# Robot Specifications
+## 🛠 Technologies Used
 
-Base Type
-
-- Differential Drive
-
-Sensors
-
-- 2D LiDAR
-- RGB Camera
-- IMU
-
-Controller
-
-- diff_drive_controller
-
-Localization
-
-- AMCL
-
-Planner
-
-- Nav2 Planner Server
-
-Controller
-
-- DWB Local Planner
-
-Simulation
-
-- Gazebo
-
-Visualization
-
-- RViz2
-
----
-
-# Technologies Used
-
-- ROS 2 Humble
+- ROS2 Humble
 - Gazebo
 - RViz2
+- Nav2
+- SLAM Toolbox
 - Xacro
 - URDF
 - ros2_control
-- Nav2
-- SLAM Toolbox
-- Ubuntu 22.04
+- C++
 
 ---
 
-# Folder Structure
+## 📂 Project Structure
 
-```text
+```
 diff_drive_robot/
-
+│
 ├── config/
-├── images/
 ├── launch/
 ├── maps/
 ├── rviz/
 ├── urdf/
 ├── worlds/
-
 ├── CMakeLists.txt
 ├── package.xml
-└── README.md
+├── README.md
+└── LICENSE
 ```
 
 ---
 
-# Build
+## 🤖 Robot Description
+
+The robot is built using modular Xacro files.
+
+It consists of:
+
+- Base Link
+- Base Footprint
+- Left Wheel
+- Right Wheel
+- Caster Wheel
+- LiDAR
+- Camera
+- IMU
+
+---
+
+## 📡 Sensors
+
+### LiDAR
+
+- 360° Laser Scanner
+- Publishes LaserScan messages on `/scan`
+
+### Camera
+
+- RGB Camera
+- Publishes image topics
+
+### IMU
+
+- Orientation and acceleration measurements
+
+---
+
+## 🗺 SLAM Mapping
+
+The environment map is created using **SLAM Toolbox**.
+
+Generated map files:
+
+- `maps/my_map.yaml`
+- `maps/my_map.pgm`
+
+---
+
+## 🧭 Autonomous Navigation
+
+Navigation is implemented using **Nav2**.
+
+Capabilities include:
+
+- Localization using AMCL
+- Global path planning
+- Local path planning
+- Obstacle avoidance
+- Goal navigation using RViz
+
+---
+
+## 🚀 Build
 
 ```bash
 cd ~/ros2_projects_ws
 
-colcon build
+colcon build --symlink-install
 
 source install/setup.bash
 ```
 
 ---
 
-# Launch Gazebo
+## ▶️ Launch Gazebo
 
 ```bash
 ros2 launch diff_drive_robot gazebo.launch.py
@@ -142,7 +149,15 @@ ros2 launch diff_drive_robot gazebo.launch.py
 
 ---
 
-# Launch Navigation
+## ▶️ Launch SLAM
+
+```bash
+ros2 launch diff_drive_robot slam.launch.py
+```
+
+---
+
+## ▶️ Launch Navigation
 
 ```bash
 ros2 launch diff_drive_robot navigation.launch.py
@@ -150,91 +165,58 @@ ros2 launch diff_drive_robot navigation.launch.py
 
 ---
 
-# Launch RViz
+## ▶️ Launch RViz
 
 ```bash
-rviz2 -d install/diff_drive_robot/share/diff_drive_robot/rviz/navigation.rviz
+rviz2
+```
+
+Load:
+
+```
+rviz/navigation.rviz
 ```
 
 ---
 
-# SLAM Mapping
+## 📸 Results
 
-Launch SLAM
+The robot successfully:
 
-```bash
-ros2 launch diff_drive_robot slam.launch.py
-```
-
-Save Map
-
-```bash
-ros2 run nav2_map_server map_saver_cli \
--f ~/ros2_projects_ws/src/diff_drive_robot/maps/my_map
-```
+- Simulates in Gazebo
+- Generates maps using SLAM Toolbox
+- Localizes using AMCL
+- Plans paths using Nav2
+- Reaches user-defined goals using 2D Goal Pose
 
 ---
 
-# Autonomous Navigation
+## 🎥 Demo
 
-1. Launch Gazebo
-
-2. Launch Navigation
-
-3. Open RViz
-
-4. Click **2D Pose Estimate**
-
-5. Set Initial Pose
-
-6. Click **2D Goal Pose**
-
-7. Select Goal
-
-The robot plans a path and autonomously reaches the destination.
+A demonstration video will be added soon.
 
 ---
 
-# Screenshots
+## 🚀 Future Improvements
 
-## Gazebo
-
-(Add image here)
-
----
-
-## RViz
-
-(Add image here)
+- Dynamic obstacle avoidance
+- Camera-based object detection
+- Waypoint navigation
+- Multi-robot simulation
+- Autonomous exploration
 
 ---
 
-## Navigation
+## 👩‍💻 Author
 
-(Add image here)
+**Prachi Kale**
 
----
-
-# Future Improvements
-
-- Obstacle Avoidance Improvements
-
-- Dynamic Obstacles
-
-- Camera-based Object Detection
-
-- Autonomous Docking
-
-- Multi-Robot Navigation
-
----
-
-# Author
-
-Prachi Kale
-
-B.Tech Robotics and Automation Engineering
+B.Tech Robotics & Automation Engineering
 
 K. K. Wagh Institute of Engineering Education and Research
 
-ROS 2 Humble Project
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
