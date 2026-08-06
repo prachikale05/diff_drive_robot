@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Gazebo appearance -->
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="left_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="caster_wheel">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  
+  <gazebo>
+
+  	<plugin 
+	    filename="libgazebo_ros2_control.so"
+            name="gazebo_ros2_control">
+            
+            <parameters>
+                $(find diff_drive_robot)/config/controllers.yaml
+            </parameters>
+  	</plugin>
+
+  </gazebo>
+
+</robot>
