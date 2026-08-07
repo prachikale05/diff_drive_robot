@@ -301,7 +301,11 @@ The robot successfully performs:
 - Goal Execution using Nav2
 
 ---
+## 🎥 Project Demo
 
+https://github.com/user-attachments/assets/your-video-id
+
+---
 # 🎥 Demo
 
 A demonstration video showcasing SLAM mapping and autonomous navigation will be added in a future update.
