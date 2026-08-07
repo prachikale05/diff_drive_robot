@@ -303,7 +303,9 @@ The robot successfully performs:
 ---
 ## 🎥 Project Demo
 
-https://github.com/user-attachments/assets/your-video-id
+Watch the full project demonstration on YouTube:
+
+▶️ https://youtu.be/A7mQKuiSoao
 
 ---
 # 🎥 Demo
