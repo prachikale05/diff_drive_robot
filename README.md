@@ -303,9 +303,9 @@ The robot successfully performs:
 ---
 ## 🎥 Project Demo
 
-Watch the full project demonstration on YouTube:
+Watch the full project demonstration:
 
-▶️ https://youtu.be/A7mQKuiSoao
+https://github.com/user-attachments/assets/9da91be3-03ba-4e29-a5b2-dbb39ce00456
 
 ---
 # 🎥 Demo
